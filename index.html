@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="dashboard">
+        <div id="dashboard-header">
+            <div id="sidebar-toggle" onmousedown="toggleSidebar()" for="sidebar-toggle-checkbox">
+                <i id="sidebar-toggle-icon" class="material-icons sidebar-toggle-button">menu</i>
+            </div>
+            <div id="dashboard-title">Dashboard</div>
+            <div class="flex-expand"></div>
+            <div id="header-user-avatar-dropdown">
+                <div id="userAvatarDropDown" class="dropdown is-right">
+                    <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                        <span class="icon is-small">
+                            <i class="material-icons">person</i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                      <div class="dropdown-content">
+                        <a href="#" class="dropdown-item">
+                          Home
+                        </a>
+                        <a class="dropdown-item">
+                          Settings
+                        </a>
+                        <a href="#" class="dropdown-item is-active">
+                          Other
+                        </a>
+                        <a href="https://material.io/resources/icons/?icon=insert_drive_file&style=baseline" class="dropdown-item" >
+                          Logout
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item">
+                          Reload
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                
+            </div>
+            
+
+            
+
+
+
+        </div>
+        <div id="dashboard-content">
+            <div id="dashboard-sidebar">
+                <ul id="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">dashboard</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Dashboard</div>
+                        <span class="tooltiptext">Dashboard</span>
+                    </li>
+                    <li class="sidebar-menu-item active">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Users</div>
+                        <span class="tooltiptext">Users</span>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">event</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Events</div>
+                        <span class="tooltiptext">Events</span>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">shopping_cart</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Orders</div>
+                        <span class="tooltiptext">Orders</span>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">view_list</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Records</div>
+                        <span class="tooltiptext">Records</span>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">notification_important</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Notifications</div>
+                        <span class="tooltiptext">Notifications</span>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">insert_drive_file</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Documents</div>
+                        <span class="tooltiptext">Documents</span>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <div class="sidebar-menu-item-icon">
+                            <i class="material-icons">settings</i>
+                        </div>
+                        <div class="sidebar-menu-item-text">Settings</div>
+                        <span class="tooltiptext">Settings</span>
+                    </li>
+                </ul>
+            </div>
+            <div id="dashboard-body">
+                <div class="dashboard-content-header is-widescreen">
+                    <div class="has-text-weight-light is-size-2 pt-2 pl-5">Users</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        document.body.addEventListener('click', function() {
+            //Hide the menus if visible
+            console.log('document clicked')
+            var dropdown  = document.getElementById('userAvatarDropDown')
+            dropdown.classList.remove('is-active');
+        })
+
+        document.getElementById('userAvatarDropDown').addEventListener('click', function(event){
+            event.stopPropagation()
+            var dropdown  = document.getElementById('userAvatarDropDown')
+            if(dropdown.classList.contains('is-active')){
+                dropdown.classList.remove('is-active');
+            }
+            else{
+                dropdown.classList.add('is-active')
+            }
+        });
+
+
+        function toggleSidebar(){
+            var toggleBtn = document.getElementById('sidebar-toggle-icon');
+            var sidebarElem = document.getElementById('dashboard-sidebar');
+
+            toggleBtn.style.transition = '0s ease-out all';
+            toggleBtn.style.backgroundColor = '#e8e8e8';
+            setTimeout(() => {
+                toggleBtn.style.transition = '0.4s ease-out all';
+                toggleBtn.style.backgroundColor = '#fff';
+            }, 200);
+
+            if(sidebarElem.classList.contains('icons-only')){
+                sidebarElem.classList.remove('icons-only')
+            }
+            else{
+                sidebarElem.classList.add('icons-only')
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+
+html {
+    overflow-y: hidden !important;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto Slab', serif;
+}
+
+.material-icons{
+    line-height: unset !important;
+}
+
+.flex-expand {
+    flex-grow: 1;
+}
+
+div#dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+div#dashboard-header {
+    height: 56px;
+    box-shadow: 0px 1px 4px 1px #cdcdcd;
+    align-items: center;
+    display: flex;
+    padding: 0 1rem;
+    z-index: 9999;
+}
+
+div#sidebar-toggle {
+    cursor: pointer;
+}
+
+i.sidebar-toggle-button {
+    padding: 0.5rem;
+    font-size: 24px;
+    line-height: 24px !important;
+    border-radius: 30px;
+}
+
+div#dashboard-title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-left: 1rem;
+}
+
+#header-user-avatar-dropdown{
+    margin-right: 0.5rem;
+}
+
+div#header-user-avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 34px;
+    background-color: #84b0ce;
+    cursor: pointer;
+}
+
+#userAvatarDropDown .dropdown-trigger .button {
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    background-color: var(--primary-color);
+    width: 36px;
+    height: 36px;
+}
+
+#userAvatarDropDown .dropdown-menu{
+    min-width: 10rem;
+}
+
+div#dashboard-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--body-bg-color);
+}
+
+div#dashboard-sidebar {
+    width: 256px;
+    background-color: #fff;
+    border-right: 1px solid #dcdcdc;
+    transition: 0.2s ease-out all;
+}
+
+div#dashboard-body {
+    flex-grow: 1;
+    overflow-y: scroll;
+    margin: 0.75rem 0 0 0.75rem;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+}
+
+ul#sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+li.sidebar-menu-item {
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    align-items: center;
+    padding: 0 1rem;
+    cursor: pointer;
+    border-left: 4px solid #ffffff;
+    transition: 0.1s ease-in all;
+}
+
+li.sidebar-menu-item.active {
+    border-left: 4px solid var(--primary-color) !important;
+    color: var(--primary-color);
+    background-color: var(--sidemenu-active-bg-color) !important;
+}
+
+li.sidebar-menu-item:hover {
+    border-left: 4px solid #b6b6b6;
+    background-color: var(--sidemenu-active-hover);
+}
+
+.sidebar-menu-item-icon {
+    margin-right: 1rem;
+    color: var(--text-color-one);
+}
+
+.sidebar-menu-item-icon i{
+    font-size: 1.25rem;
+}
+
+
+div.sidebar-menu-item-text{
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--text-color-one);
+    transition: 0.1s ease-out all;
+}
+
+#dashboard-sidebar.icons-only #sidebar-menu .sidebar-menu-item .sidebar-menu-item-text{
+    opacity: 0;
+}
+
+#dashboard-sidebar.icons-only{
+    width: 64px;
+}
+
+
+
+
+
+
+
+
+
+  
+  /* Tooltip text */
+  .sidebar-menu-item .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--text-color-one);;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    left: 3.25rem;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    opacity: 0;
+    transition: 0.5s ease-out opacity;
+  }
+
+  .sidebar-menu-item .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent var(--text-color-one) transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  #dashboard-sidebar.icons-only .sidebar-menu-item:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
