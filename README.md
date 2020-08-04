@@ -1,4 +1,4 @@
-# Bulma-material-dashboard-skeleton
+# Bulma material dashboard skeleton
 
+## Screenshot
 ![GitHub Logo](/screenshot.png)
-Format: ![Alt Text](url)
